@@ -1,0 +1,29 @@
+
+
+
+
+
+
+<h1>Edit Region</h1>
+<form>
+    <input type="text" id="regionName" value="{{data.name}}"/>
+    <button class="editItem" >Edit</button>
+</form>
+
+<script>
+    jQuery(function($)){
+        $(document).ready(function(){
+            $(".editItem").click((e)=>{
+                e.preventDefault();
+                $.ajax({
+                        method: "PUT",
+                        url: `http://localhost:3000/regions/edit/${itemId}`,
+                        data: {name: $("#regionName").val()},
+                        success: (data, status, xhr) => {
+                            window.location("http://localhost:3000/regions");
+                        }
+                    });
+            });
+        });
+    }
+</script>

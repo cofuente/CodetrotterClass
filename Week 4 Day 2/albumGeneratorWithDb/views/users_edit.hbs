@@ -1,0 +1,10 @@
+<h1>Edit User</h1>
+<form action="/users/{{data.id}}/edit" method="POST">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" placeholder="{{data.firstName}}"/>
+    <br/>
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" placeholder="{{data.lastName}}"/>
+    <br/>
+    <button type="submit">Edit User</button>
+</form>

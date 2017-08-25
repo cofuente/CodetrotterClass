@@ -1,0 +1,22 @@
+{
+  "name": "albumgeneratorwithdb",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "dev": "SET DEBUG=albumgeneratorwithdb:* & npm start"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "hbs": "~4.0.1",
+    "morgan": "~1.8.1",
+    "node-sass-middleware": "0.9.8",
+    "nodemon": "^1.11.0",
+    "sequelize": "^4.4.2",
+    "serve-favicon": "~2.4.2",
+    "sqlite3": "^3.1.9"
+  }
+}

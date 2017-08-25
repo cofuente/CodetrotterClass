@@ -1,0 +1,39 @@
+<h1>Users</h1>
+<a href="/users/create">Create New User</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td><a href="/users/{{id}}">View</a>
+            <a href="/users/{{id}}/edit">Edit</a>
+            <a href="#" class="deleteItem" data-itemid="{{id}}">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<script>
+    jQuery(function($){
+        $(document).ready(function(){
+            $(".deleteItem").click(function(){
+                const  response = confirm("Are you sure you would like to delete?");
+                if (response) {
+                    const itemId = parseInt($(this).attr("data-itemid"));
+                    $.ajax({
+                        method: "DELETE",
+                        url: `http://localhost:3000/regions/delete/${itemId}`
+                    });
+                }
+            });
+        });
+    }); 
+</script>

@@ -1,0 +1,43 @@
+<h1>Available Regions</h1>
+<table border=1>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each data}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>
+                <a href="/regions/{{id}}">View</a>
+                <a href="/regions/edit/{{id}}" >Edit</a>
+                <a href="#" class="deleteItem" data-itemid="{{id}}">Delete</a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<script>
+    jQuery(function($){
+        $(document).ready(function(){
+            $(".deleteItem").click(function(){
+                const  response = confirm("Are you sure you would like to delete?");
+                if (response) {
+                    const itemId = parseInt($(this).attr("data-itemid"));
+                    $.ajax({
+                        method: "DELETE",
+                        url: `http://localhost:3000/regions/delete/${itemId}`,
+                        success: (data, status, xhr) => {
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+        });
+    }); 
+</script>
